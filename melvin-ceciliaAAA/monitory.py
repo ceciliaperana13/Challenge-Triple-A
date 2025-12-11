@@ -67,7 +67,7 @@ for proc in top_processes:
     top_processes_list += f"<li>{proc['name']} - CPU: {proc['cpu_percent']}%, RAM: {proc['memory_percent']:.2f}%</li>\n"
 
 # ---------- Analyse fichiers ----------
-directory = os.path.expanduser("~/Documents")  # Modifier selon ton répertoire
+directory = os.path.expanduser("~/Documents")  
 extensions = ['.txt', '.py', '.pdf', '.jpg']
 file_stats = {}
 total_files = 0
