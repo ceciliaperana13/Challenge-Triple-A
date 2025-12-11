@@ -108,7 +108,7 @@ def generate_dashboard():
     with open("template.html", "r", encoding="utf-8") as f:
         html = f.read()
 
-    # Maintenant html existe, on peut remplacer :
+    
     html = html.replace("{{ system_hostname }}", sys_info["hostname"])
     html = html.replace("{{ system_os }}", sys_info["os"])
     html = html.replace("{{ system_uptime }}", sys_info["uptime"])
@@ -146,7 +146,7 @@ def generate_dashboard():
     html = html.replace("{{ generator_name }}", GENERATOR_NAME)
     html = html.replace("{{ generation_timestamp }}", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
-    # Sauvegarde dans index.html
+    
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
 
