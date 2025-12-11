@@ -38,6 +38,11 @@ Fonctionnalités
     • Barre de progression RAM avec CSS
     • Mise en page responsive et moderne
     • Dashboard entièrement autonome (sans Flask, sans JavaScript)
+Voici la capture de l'interface principale :
+
+![Interface principale](/image/visuel_haut_du_site.png)
+![Interface Responsive](/image/responsive.png)
+
 Difficultés rencontrées
     • Installation du module psutil sur VSCode (résolu via python -m pip install psutil)
     • Problèmes de remplacement des variables dans le template HTML
