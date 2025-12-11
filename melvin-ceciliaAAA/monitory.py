@@ -107,7 +107,7 @@ replacements = {
 }
 
 # ---------- Générer index.html ----------
-with open("/melvin-ceciliaAAA/template.html", "r", encoding="utf-8") as f:
+with open("template.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 for key, value in replacements.items():

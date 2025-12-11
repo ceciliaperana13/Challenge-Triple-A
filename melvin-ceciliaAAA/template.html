@@ -10,55 +10,67 @@
 <body>
     <header>
         <h1>System Monitoring Dashboard</h1>
-        <p>Generated at: {{ timestamp }}</p>
+        <p>Generated at: 2025-12-11 12:00:00</p>
     </header>
 
     <main>
         <!-- System -->
         <section id="system">
             <h2>System Information</h2>
-            <p>Machine Name: {{ machine_name }}</p>
-            <p>OS: {{ os_name }} {{ os_version }}</p>
-            <p>Uptime: {{ uptime }}</p>
-            <p>Number of Users: {{ user_count }}</p>
+            <p>Machine Name: MyMachine</p>
+            <p>OS: Windows 10 Pro</p>
+            <p>Uptime: 5 days 3 hours</p>
+            <p>Number of Users: 3</p>
         </section>
 
         <!-- CPU -->
         <section id="cpu">
             <h2>CPU</h2>
-            <p>Number of Cores: {{ cpu_cores }}</p>
-            <p>Frequency: {{ cpu_freq }} GHz</p>
-            <p>Total Usage: <span class="{{ cpu_usage_color }}">{{ cpu_usage }}%</span></p>
+            <p>Number of Cores: 8</p>
+            <p>Total Usage: <span class="percent red">65%</span></p>
+
             <div class="progress-bar">
-                <div class="progress" style="width: {{ cpu_usage }}%; background-color: {{ cpu_usage_color }};"></div>
+                <div class="progress-fill red" style="width: 65%;">65%</div>
             </div>
 
             <h3>Per Core Usage</h3>
-            {{ per_core_gauges }}
+            <!-- Limité aux 3 premiers cores -->
+            <div class="progress-bar">
+                <div class="progress-fill yellow" style="width: 30%;">Core 1: 30%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill red" style="width: 70%;">Core 2: 70%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill yellow" style="width: 55%;">Core 3: 55%</div>
+            </div>
         </section>
 
         <!-- Memory -->
         <section id="memory">
             <h2>Memory</h2>
-            <p>Total RAM: {{ ram_total }} GB</p>
-            <p>Used RAM: {{ ram_used }} GB</p>
-            <p>Usage: <span class="{{ ram_usage_color }}">{{ ram_percent }}%</span></p>
+            <p>Total RAM: 16 GB</p>
+            <p>Used RAM: 8 GB</p>
+            <p>Usage: <span class="percent yellow">50%</span></p>
+
             <div class="progress-bar">
-                <div class="progress" style="width: {{ ram_percent }}%; background-color: {{ ram_usage_color }};"></div>
+                <div class="progress-fill yellow" style="width: 50%;">50%</div>
             </div>
         </section>
 
         <!-- Network -->
         <section id="network">
             <h2>Network</h2>
-            <p>Primary IP Address: {{ ip_address }}</p>
+            <p>Primary IP Address: 192.168.1.10</p>
         </section>
 
         <!-- Processes -->
         <section id="processes">
             <h2>Top 3 Processes</h2>
             <ol>
-                {{ top_processes_list }}
+                <li>chrome.exe - CPU: 25%</li>
+                <li>python.exe - CPU: 15%</li>
+                <li>explorer.exe - CPU: 10%</li>
             </ol>
         </section>
 
@@ -66,13 +78,15 @@
         <section id="files">
             <h2>File Analysis</h2>
             <ul>
-                {{ file_stats_list }}
+                <li>log.txt - 2 MB</li>
+                <li>report.pdf - 5 MB</li>
+                <li>data.csv - 12 MB</li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>Dashboard generated automatically by monitor.py</p>
+        <p>Dashboard generated automatically</p>
     </footer>
 </body>
 </html>
