@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitoring Dashboard</title>
+    <link rel="stylesheet" href="template.css">
+</head>
+<body>
+    <header>
+        <h1>System Monitoring Dashboard</h1>
+        <p>Generated at: {{ timestamp }}</p>
+    </header>
+
+    <main>
+        <!-- System -->
+        <section id="system">
+            <h2>System Information</h2>
+            <p>Machine Name: {{ machine_name }}</p>
+            <p>OS: {{ os_name }} {{ os_version }}</p>
+            <p>Uptime: {{ uptime }}</p>
+            <p>Number of Users: {{ user_count }}</p>
+        </section>
+
+        <!-- CPU -->
+        <section id="cpu">
+            <h2>CPU</h2>
+            <p>Number of Cores: {{ cpu_cores }}</p>
+            <p>Frequency: {{ cpu_freq }} GHz</p>
+            <p>Total Usage: <span class="{{ cpu_usage_color }}">{{ cpu_usage }}%</span></p>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ cpu_usage }}%; background-color: {{ cpu_usage_color }};"></div>
+            </div>
+
+            <h3>Per Core Usage</h3>
+            {{ per_core_gauges }}
+        </section>
+
+        <!-- Memory -->
+        <section id="memory">
+            <h2>Memory</h2>
+            <p>Total RAM: {{ ram_total }} GB</p>
+            <p>Used RAM: {{ ram_used }} GB</p>
+            <p>Usage: <span class="{{ ram_usage_color }}">{{ ram_percent }}%</span></p>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ ram_percent }}%; background-color: {{ ram_usage_color }};"></div>
+            </div>
+        </section>
+
+        <!-- Network -->
+        <section id="network">
+            <h2>Network</h2>
+            <p>Primary IP Address: {{ ip_address }}</p>
+        </section>
+
+        <!-- Processes -->
+        <section id="processes">
+            <h2>Top 3 Processes</h2>
+            <ol>
+                {{ top_processes_list }}
+            </ol>
+        </section>
+
+        <!-- Files -->
+        <section id="files">
+            <h2>File Analysis</h2>
+            <ul>
+                {{ file_stats_list }}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Dashboard generated automatically by monitor.py</p>
+    </footer>
+</body>
+</html>
