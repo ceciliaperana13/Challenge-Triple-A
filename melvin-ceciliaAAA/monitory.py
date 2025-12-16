@@ -7,7 +7,7 @@ from datetime import datetime
 
 # ---------- Fonctions utilitaires ----------
 def usage_color(percent):
-    """Renvoie la couleur selon le pourcentage d'utilisation"""
+    
     if percent <= 50:
         return "green"
     elif percent <= 80:
